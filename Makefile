@@ -1,22 +1,19 @@
-CC = g++
-CFLAGS = -Wall -I./include
+CXX = g++
+CXXFLAGS  = -Wall -I./include
 
-SRCDIR = ./src
-OBJDIR = ./obj
-BINDIR = ./bin
+SRC_DIR = ./src
+OBJ_DIR = ./obj
+BIN_DIR = ./bin
 
-SOURCES := $(wildcard $(SRCDIR)/*.c*)
+SOURCES := $(wildcard $(SRC_DIR)/*.c*)
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
-
-EXECUTABLE = $(BINDIR)/factorial $(BINDIR)/ex3 
-
-all: $(EXECUTABLE)
+EXECUTABLE = ex3 
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $(BIN_DIR)/$@
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $^ -o $(OBJ_DIR)/$@
 
 clean:
-	rm -f $(BINDIR)/* $(OBJDIR)/*
+	rm -f $(BIN_DIR)/* $(OBJ_DIR)/*
