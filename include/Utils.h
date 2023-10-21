@@ -1,7 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
-#include <date.h>
-#include <trip.h>
+#include "Date.h"
+#include "Trip.h"
 
 bool before(Date d1, Date d2);
 
