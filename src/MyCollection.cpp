@@ -1,5 +1,13 @@
 #include "MyCollection.hpp"
-#include <experimental/random>
+#include <random>
+
+template <class T>
+T rand(T min, T max) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<T> dis(min, max);
+    return dis(gen);
+}
 
 template <class T>
 int factorial(T n) {
@@ -11,7 +19,7 @@ int factorial(T n) {
 template <class T>
 void init(MyCollection<T> &c, int k, T min_value, T max_value) {
     for (int i = 0; i < k; i++)
-        c.insert_end(std::experimental::randint(min_value, max_value)); // See https://en.cppreference.com/w/cpp/experimental/randint
+        c.insert_end(rand(min_value, max_value)); // See https://en.cppreference.com/w/cpp/experimental/randint
 }
 
 template <class T>
@@ -39,7 +47,7 @@ std::ostream &operator<<(std::ostream &o, const MyCollection<U> &c) {
 template <class T>
 void vector_init(std::vector<T> &v, int k, T min_value, T max_value) {
     for (auto i = 0; i < k; i++)
-        v.push_back(std::experimental::randint(min_value, max_value));
+        v.push_back(rand(min_value, max_value));
 }
 
 template <class T>

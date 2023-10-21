@@ -40,9 +40,6 @@ void testVectorFunctions(int size, T min_value, T max_value) {
 }
 
 int main() {
-
-    std::srand(std::time(nullptr)); // use current time as seed for random generator
-
     unsigned size{10};
 
     std::cout << "\n *** Testing MyCollection versions *** \n\n";
