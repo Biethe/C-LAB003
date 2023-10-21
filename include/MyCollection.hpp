@@ -1,3 +1,6 @@
+#ifndef MYCOLLECTION_HPP
+#define MYCOLLECTION_HPP
+
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -71,3 +74,5 @@ void vector_apply_fact(const std::vector<T> &c, std::vector<T> &res);
 
 template <class T>
 T random_range(T min, T max);
+
+#endif

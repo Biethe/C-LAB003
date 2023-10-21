@@ -1,7 +1,7 @@
 #include <date.h>
 #include <trip.h>
 
-
+/*
 int main(int argc, char *argv[]){
 	
 	if (argc != 7){
@@ -24,4 +24,4 @@ int main(int argc, char *argv[]){
 		
 	}
 	return 0;
-}
+}*/
