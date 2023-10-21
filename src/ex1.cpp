@@ -22,10 +22,7 @@ ostream &operator<<(ostream &o, const __int128 &c) {
 	if(c==0) o<<c;
 	else {
 		__int128 d = c;
-		if(d<0) {
-			d = -d;
-			o<<"-";
-		}
+		if(d<0) { d = -d; o<<"-"; }
 		remainderOf10Rec(o, d);
 	}
 	return o;
@@ -46,8 +43,7 @@ void printSizeAndFac(string type, unsigned int n, bool b) {
 	cout<<"factorial("<<n+1<<") = "<<factorial<T>(n+1)<<endl;
 	cout<<"The result of factorial in type "<<type<<" overflow when n > "<<n-1;
 	cout<<", because "<<n-1<<"!<2^";
-	if(!b) cout<<"("<<size*8<<"-1)";
-	else cout<<size*8;
+	(!b)?(cout<<"("<<size*8<<"-1)") : (cout<<size*8);
 	cout<<"-1<"<<n<<"!"<<endl;
 }
 
