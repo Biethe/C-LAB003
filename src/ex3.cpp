@@ -48,8 +48,8 @@ int main() {
     std::cout << "\n *** Testing MyCollection versions *** \n\n";
     testFunctions<short>(size, 0, 7);
     testFunctions<int>(size, 0, 12);
-    testFunctions<long>(size, 0, 13);
-    testFunctions<long long>(size, 0, 14);
+    testFunctions<long>(size, 0, 16);
+    testFunctions<long long>(size, 0, 16);
 
     std::cout << "\n *** Testing vector versions *** \n\n";
     testVectorFunctions<short>(size, 0, 7);
