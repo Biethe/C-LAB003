@@ -68,3 +68,6 @@ void vector_init(std::vector<T> &v, int k, T min_value, T max_value);
 
 template <class T>
 void vector_apply_fact(const std::vector<T> &c, std::vector<T> &res);
+
+template <class T>
+T random_range(T min, T max);
