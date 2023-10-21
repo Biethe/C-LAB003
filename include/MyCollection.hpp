@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 
 template <class T>
 class MyCollection {
@@ -34,19 +35,19 @@ public:
         return max_size;
     }
 
-    void insert_end(T value) {
-        if (size >= max_size)
-            throw std::range_error("Not enough space!");
-        arr[size] = value;
-        size++;
-    }
-
-    T get_elem(int index) {
+    T get_elem(unsigned index) const {
         if (index < size) {
             return arr[index];
         } else {
             throw std::invalid_argument("Index out of bounds!");
         }
+    }
+
+    void insert_end(T value) {
+        if (size >= max_size)
+            throw std::range_error("Not enough space!");
+        arr[size] = value;
+        size++;
     }
 
     template <typename U>
@@ -58,3 +59,12 @@ void init(MyCollection<T> &c, int k, T min_value = 0, T max_value = 100);
 
 template <class T>
 void apply_fact(const MyCollection<T> &c, MyCollection<T> &res);
+
+template <class T>
+int factorial(T n);
+
+template <class T>
+void vector_init(std::vector<T> &v, int k, T min_value, T max_value);
+
+template <class T>
+void vector_apply_fact(const std::vector<T> &c, std::vector<T> &res);

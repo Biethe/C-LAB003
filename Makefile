@@ -1,7 +1,7 @@
-#CC = gcc
-CC = clang
-#CXX = g++
-CXX = clang++
+CC = gcc
+# CC = clang
+CXX = g++
+# CXX = clang++
 CXXFLAGS = -Wall -I./include -std=c++11
 
 SRC_DIR = ./src
