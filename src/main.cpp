@@ -24,9 +24,10 @@ int main(int argc, char *argv[]) {
 	cout<<"*       Ex2       *"<<endl;
 	cout<<"==================="<<endl;
 	if (argc != 7){
-		std::cout << "\nPlease enter 6 parameters in the command line." << std::endl;
+		std::cout << "\nPlease enter 6 arguments in the command line." << std::endl;
 		std::cout << "\nThe first 3 of them corresponding to the beginning date of your trip, and the remaining 3 corresponding to the end date of your trip." << std::endl;
 		std::cout << "\nThey should all be integers and be passed as in the following format 'DD MM YY'" << std::endl;
+		std::cout << "\nAn example would be './main 12 01 2018 07 05 2019'"<< std::endl;
 	}
 	else{
 		float price;
