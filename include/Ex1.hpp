@@ -28,6 +28,16 @@ ostream &operator<<(ostream &o, const __int128 &c) {
 	return o;
 }
 
+ostream &operator<<(ostream &o, const unsigned __int128 &c) {
+	if(c==0) o<<c;
+	else {
+		__int128 d = c;
+		if(d<0) { d = -d; o<<"-"; }
+		remainderOf10Rec(o, d);
+	}
+	return o;
+}
+
 template<typename T>
 T factorial(unsigned int n) {
 	if(n<=1) return (T)1;
@@ -37,10 +47,11 @@ T factorial(unsigned int n) {
 template<typename T>
 void printSizeAndFac(string type, unsigned int n, bool b) {
 	size_t size = sizeof(T);
+	T fac = factorial<T>(n-1);
 	cout<<"The size of "<<type<<" is "<<size<<" byte(s), equivalent to "<<size*8<<" bits"<<endl;
-	cout<<"factorial("<<n-1<<") = "<<factorial<T>(n-1)<<endl;
-	cout<<"factorial("<<n<<") = "<<factorial<T>(n)<<endl;
-	cout<<"factorial("<<n+1<<") = "<<factorial<T>(n+1)<<endl;
+	cout<<"factorial("<<n-1<<") = "<<fac<<endl;
+	cout<<"factorial("<<n<<") = "<<fac*n<<endl;
+	cout<<"factorial("<<n+1<<") = "<<fac*n*(n+1)<<endl;
 	cout<<"The result of factorial in type "<<type<<" overflow when n > "<<n-1;
 	cout<<", because "<<n-1<<"!<2^";
 	(!b)?(cout<<"("<<size*8<<"-1)") : (cout<<size*8);
@@ -79,21 +90,21 @@ void ex1_2() {
 	printSizeAndFac<__int128>("__int128", 34, f);
 
 	cout<<endl;
-	cout<<"The usigned modifier in data type is used to represent non-negative numbers only. In contrast to signed types, unsigned types can use all bits to represent the magnitude of a number since there is no need to store the sign. Its representable interval become [0, 2^(size of type)-1] instead of [-2^((size of type)-1), 2^((size of type)-1)-1]"<<endl;
-	cout<<"For example, a signed char type uses one bit to represent the sign, allowing it to represent values ranging from -2^7 to 2^7-1. When using the unsigned variant of char, the range becomes [0, 2^8-1] as all 8 bits are utilized to represent the number, enhancing the positive range."<<endl;
-	cout<<"Consider an int variable is assigned the value 2^7 = 128 and print it, we get: "<<(char)128<<endl;
-	cout<<"due to overflow. It's the opposite of 128 because the bit used to determine the sign is set to be 1. (binary: (this bit->)1 0000 0000)"<<endl;
-	cout<<"After adding the unsigned variants, we can obtain the correct value: "<<(unsigned char)128<<endl;
-	cout<<endl;
-	cout<<"While the unsigned data types extend the positive range by using the bit ordinarily reserved for the sign. The factorial function grows faster than the exponential increase of the storage capacity. So we will get the same result as before. Consider the examples of unsigned char and unsigned short int:"<<endl;
-
+	
 	f = true;
 	cout<<"--unsigned char--"<<endl;
 	printSizeAndFac<unsigned char>("unsigned char", 6, f);
 	cout<<"--unsigned short int--"<<endl;
-	printSizeAndFac<short int>("unsigned short int", 8, f);
-	cout<<endl;
-	cout<<"We observe that the factorial of 6 for unsigned char and of 8 for unsigned short int already result in overflows, similar to their signed counterparts."<<endl;
+	printSizeAndFac<unsigned short int>("unsigned short int", 8, f);
+	
+	cout<<"--unsigned int--"<<endl;
+	printSizeAndFac<unsigned int>("unsigned int", 13, f);
+	cout<<"--unsigned long int--"<<endl;
+	printSizeAndFac<unsigned long int>("unsigned long int", 21, f);
+	cout<<"--unsigned long long int--"<<endl;
+	printSizeAndFac<unsigned long long int>("unsigned long long int", 21, f);
+	cout<<"--unsigned __int128--"<<endl;
+	printSizeAndFac<unsigned __int128>("unsigned __int128", 34, f);
 }
 
 #endif
