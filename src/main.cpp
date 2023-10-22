@@ -3,11 +3,11 @@
 using namespace std;
 
 #include "Ex1.hpp"
-//#include "Ex2.hpp"
+#include "Trip.h"
 #include "Ex3.hpp"
 #include "Ex4.hpp"
 
-int main() {
+int main(int argc, char *argv[]) {
 	cout<<"==================="<<endl;
 	cout<<"*       Ex1       *"<<endl;
 	cout<<"==================="<<endl;
@@ -23,11 +23,26 @@ int main() {
 	cout<<"==================="<<endl;
 	cout<<"*       Ex2       *"<<endl;
 	cout<<"==================="<<endl;
-	cout<<"qqch"<<endl;
-	//function ex2()[main in ex2.cpp] here
-	cout<<endl;
-	cout<<"Please type to continue."<<endl;
-	cin.get();
+	if (argc != 7){
+		std::cout << "\nPlease enter 6 parameters in the command line." << std::endl;
+		std::cout << "\nThe first 3 of them corresponding to the beginning date of your trip, and the remaining 3 corresponding to the end date of your trip." << std::endl;
+		std::cout << "\nThey should all be integers and be passed as in the following format 'DD MM YY'" << std::endl;
+	}
+	else{
+		float price;
+		std::cout << "May you enter the overall price of the trip:" << std::endl;
+		std::cin >> price;
+		int beg_d = atoi(argv[1]);
+		int beg_m = atoi(argv[2]);
+		int beg_y = atoi(argv[3]);
+		int end_d = atoi(argv[4]);
+		int end_m = atoi(argv[5]);
+		int end_y = atoi(argv[6]);
+		Trip trip_1(beg_d, beg_m, beg_y, end_d, end_m, end_y, price);
+		trip_1.print_trip();
+		trip_1.price_per_day();
+		
+	}
 
 	cout<<"==================="<<endl;
 	cout<<"*       Ex3       *"<<endl;
