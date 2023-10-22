@@ -16,12 +16,12 @@ Trip::Trip(Date b, Date e, float p):beg_date(b.get_day(), b.get_month(), b.get_y
 		
 void Trip::print_trip() {
 	int journey = duration(beg_date, this->end_date);
-	std::cout << "Your trip started on " << this->beg_date.get_day() << "/" << this->beg_date.get_month()<< "/" << this->beg_date.get_year() << " and ended on " << this->end_date.get_day() << "/" << this->end_date.get_month()<< "/" << this->end_date.get_year() << "\nSo it lasts " << journey << " days." << std::endl;			
+	std::cout << "Your trip started on " << this->beg_date.get_day() << "/" << this->beg_date.get_month()<< "/" << this->beg_date.get_year() << " and ended on " << this->end_date.get_day() << "/" << this->end_date.get_month()<< "/" << this->end_date.get_year() << "\nSo It lasted " << journey << " days." << std::endl;			
 }
 
 
 float Trip::price_per_day(){
 	int journey = duration(beg_date, this->end_date);
-	std::cout << "It cost you " << price/journey << " euros per day" << std::endl;
+	std::cout << "It cost you on average " << price/journey << " euros per day" << std::endl;
 	return price/journey;
 }
