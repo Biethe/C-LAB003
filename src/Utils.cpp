@@ -30,12 +30,12 @@ int duration(Date d1, Date d2){
 	}
 }
 
-/*Overload of operator '<' which basically return the same value as function 'before'.*/
+/*Overload of friend operator to class Date '<' which basically return the same value as function 'before'.*/
 bool operator<(Date &d1,Date d2){
 	return before(d1, d2);
 }
 
-/*Overload of operator '-' which basically return the same value as function 'difference'*/
+/*Overload of friend operator to class Date '-' which basically return the same value as function 'difference'*/
 int operator-(Date &d1,Date d2){
 	return difference(d1, d2);
 }
