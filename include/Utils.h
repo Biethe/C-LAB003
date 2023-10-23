@@ -9,9 +9,9 @@ int difference(Date d1, Date d2);
 
 int duration(Date d1, Date d2);
 
-bool operator<(Date &d1,Date d2);
+/*bool operator<(Date &d1,Date d2);
 
-int operator-(Date &d1,Date d2);
+int operator-(Date &d1,Date d2);*/
 
 
 #endif
